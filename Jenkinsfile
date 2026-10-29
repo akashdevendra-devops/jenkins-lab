@@ -14,7 +14,13 @@ pipeline{
         sh 'date'
       }
     }
-
+    stage('Create Artifact') {
+      steps {
+        sh 'echo "Jenkins assessment artifact" > assessment.txt'
+        archiveArtifacts artifacts: 'assessment.txt', fingerprint: true
+      }
+    }
+      
     stage('Git Checkout') {
       steps {
         echo 'Pipeline completed successfully!'
