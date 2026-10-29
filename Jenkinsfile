@@ -10,6 +10,7 @@ pipeline{
 
     stage('System info') {
       steps {
+        sh 'hostname'
         sh 'whoami'
         sh 'date'
       }
